@@ -31,10 +31,10 @@ jobs:
           script: |
 
             cd /home/ubuntu/strapi-deployment
-            git pull origin main
+            #git pull origin main
             #cd /home/ubuntu/strapi-deployment
             npm install
             npm run build
-            pm2 restart strapi-project
-            #pm2 start npm --name strapi-project -- run develop
+            #pm2 restart strapi-project
+            pm2 start npm --name strapi-project -- run develop
             #pm2 save
