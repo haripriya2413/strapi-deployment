@@ -29,24 +29,16 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-          
-            sudo apt update
-            sudo apt install nodejs npm
-            sudo apt install -y curl
-            curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-            sudo apt-get install -y nodejs
-            sudo npm install -g npm@10.8.1
-            sudo npm install -g yarn
-            sudo npm install -g pm2
+       
             #sudo 
             # npm install
             #npm run develop
             cd /home/ubuntu/strapi-deployment
             git pull origin main
             #cd /home/ubuntu/strapi-deployment
-            #npm install
-            #npm run build
-            NODE_ENV=production yarn build
+            npm install
+            npm run build
+          
             pm2 restart strapi-project
             #pm2 start npm --name strapi-project -- run develop
             #pm2 save
