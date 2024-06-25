@@ -1,20 +1,18 @@
+
 name: Deploy Strapi to EC2
+
 on:
   push:
     branches:
       - main
+
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
 
       - name: Install dependencies
         run: npm install
@@ -29,12 +27,6 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-
-            cd /home/ubuntu/strapi-deployment
-            #git pull origin main
-            #cd /home/ubuntu/strapi-deployment
+            cd /home/ubuntu/strapi-project
             npm install
-            npm run build
-            #pm2 restart strapi-project
-            pm2 start npm --name strapi-project -- run develop
-            #pm2 save
+            npm run develop
