@@ -29,9 +29,19 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
+          script: | 
+            # Update your package list
+            sudo apt update -y
+            
+
+            # Install Node.js and npm
+            sudo apt install nodejs npm -y
+            sudo apt install -y curl
+            curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+            sudo apt-get install nodejs -y
+            sudo npm install -g pm2
             cd /home/ubuntu/strapi-deployment
-          
+
             npm install
             npm run build
             #pm2 restart strapi-project
