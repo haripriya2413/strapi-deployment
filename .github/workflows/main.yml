@@ -31,14 +31,14 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: | 
             # Update your package list
-            sudo apt update -y
+            #sudo apt update -y
             
 
             # Install Node.js and npm
-            sudo apt install nodejs npm -y
-            sudo apt install -y curl
-            curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-            sudo apt-get install nodejs -y
+            #sudo apt install nodejs npm -y
+            #sudo apt install -y curl
+            #curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+            #sudo apt-get install nodejs -y
             sudo npm install -g pm2
             cd /home/ubuntu/strapi-deployment
 
