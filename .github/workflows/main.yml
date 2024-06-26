@@ -32,7 +32,6 @@ jobs:
           script: | 
             # Update your package list
             #sudo apt update -y
-            
 
             # Install Node.js and npm
             #sudo apt install nodejs npm -y
